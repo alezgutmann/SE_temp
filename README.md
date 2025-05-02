@@ -6,3 +6,6 @@
 
 # Software TODO
 - Typen von ArtikelNR und KunID definieren
+- direktionalität der assoziationen sind noch nicht bedacht -> müssen unbedingt überarbeitet werden
+- klassendiagramm müsste noch etwas sauberer gemacht werden
+- -multuiplizitäten drüberschauen, auch bei  properties (bspw speisekarte hat mehrere seiten)
