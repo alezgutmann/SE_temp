@@ -4,6 +4,53 @@
     <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
   </packageImport>
   <packagedElement xmi:type="uml:Interaction" xmi:id="_X7vFICaREfC8nYzQfTIUFg" name="Interaction1"/>
-  <packagedElement xmi:type="uml:Class" xmi:id="_C4o3ECaXEfCAcaEoQJwTVQ" name="Class3"/>
-  <packagedElement xmi:type="uml:Class" xmi:id="_ervVICaYEfCuoP51p4_1Ng" name="Class4"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_C4o3ECaXEfCAcaEoQJwTVQ" name="Kunde">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_a6PAICadEfCozJTn8R_0rw" name="KunID"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_c79nUCadEfCozJTn8R_0rw" name="Name">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_xoA6cCavEfCSDaeRIOGZcg" name="bestellungAufgeben"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_7b8SoCavEfCSDaeRIOGZcg" name="bestellhistorieAnsehen"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_ervVICaYEfCuoP51p4_1Ng" name="Bestellung">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_tDRCECadEfCozJTn8R_0rw" name="BestellNR">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_7AGwYCadEfCozJTn8R_0rw" name="Artikel" type="_jn2icCabEfCozJTn8R_0rw"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="__FU5UCadEfCozJTn8R_0rw" name="Summe">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_lNghkCavEfCSDaeRIOGZcg" name="TischNR">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_K1vuMCawEfCSDaeRIOGZcg" name="Kunde" type="_C4o3ECaXEfCAcaEoQJwTVQ"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_QKVNQCawEfCSDaeRIOGZcg" name="Status">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_lU-BACaaEfCozJTn8R_0rw" name="Mitarbeiter" visibility="public">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_-E5ecCaaEfCozJTn8R_0rw" name="MitID" visibility="public">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_LRY4cCacEfCozJTn8R_0rw" name="Name" visibility="public">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_TEobMCawEfCSDaeRIOGZcg" name="Rolle">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_b21AsCacEfCozJTn8R_0rw" name="bestellungEinsehen"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_YSN6YCawEfCSDaeRIOGZcg" name="bestellungAktuallisieren"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_jn2icCabEfCozJTn8R_0rw" name="Artikel">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_JZepsCaeEfCozJTn8R_0rw" name="Preis">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_Rfix4CaeEfCozJTn8R_0rw" name="ArtikelNR"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_jgENgCadEfCozJTn8R_0rw" name="Zahlung">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_aK2scCavEfCSDaeRIOGZcg" name="BelegNR">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_honegCavEfCSDaeRIOGZcg" name="Bestellung" type="_ervVICaYEfCuoP51p4_1Ng"/>
+  </packagedElement>
 </uml:Model>
