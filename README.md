@@ -6,4 +6,5 @@
 
 # Software TODO
 - klassendiagramm müsste noch etwas sauberer gemacht werden
-- - jemand muss das use case diagramm von jule aus dc in papyrus hinzufügen
+- jemand muss das use case diagramm von jule aus dc in papyrus hinzufügen
+- codegenerierung hat mit papyrus noch nicht so funktioniert
