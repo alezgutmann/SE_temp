@@ -17,6 +17,13 @@
   <ownedComment xmi:type="uml:Comment" xmi:id="_-cWJgCdoEfCBu5iRVKqhhA">
     <body>artikelLaden() durch lesen von .json realisiert, damit neue Artikel einfach durch (manuelles) Erstellen einer weiteren .json hinzugefügt werden können</body>
   </ownedComment>
+  <ownedComment xmi:type="uml:Comment" xmi:id="__7LXgCjzEfCjGIbVbbp4Rw">
+    <body>Bestellungen werden als .txt oder (.json ?)dateien versandt&#xD;
+</body>
+  </ownedComment>
+  <ownedComment xmi:type="uml:Comment" xmi:id="_PxxcwCj0EfCjGIbVbbp4Rw">
+    <body>Controller auf Mitarbeiterseite betreibt Polling um nach neuen Bestellungen zu schauen</body>
+  </ownedComment>
   <packageImport xmi:type="uml:PackageImport" xmi:id="_X93zICaREfC8nYzQfTIUFg">
     <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
   </packageImport>
@@ -31,7 +38,7 @@
     </ownedAttribute>
     <ownedAttribute xmi:type="uml:Property" xmi:id="_lVm28idaEfCBu5iRVKqhhA" name="bestellung" type="_ervVICaYEfCuoP51p4_1Ng" association="_lVmP4CdaEfCBu5iRVKqhhA">
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_lVm28ydaEfCBu5iRVKqhhA"/>
-      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_lVm29CdaEfCBu5iRVKqhhA" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_lVm29CdaEfCBu5iRVKqhhA" value="*"/>
     </ownedAttribute>
     <ownedAttribute xmi:type="uml:Property" xmi:id="_4NX04idfEfCBu5iRVKqhhA" name="warenkorb" type="_UGd4ICdfEfCBu5iRVKqhhA" association="_4NXN0CdfEfCBu5iRVKqhhA"/>
     <ownedAttribute xmi:type="uml:Property" xmi:id="_VwILUidkEfCBu5iRVKqhhA" name="controller" type="_Y0yEkCdjEfCBu5iRVKqhhA" association="_VwHkQCdkEfCBu5iRVKqhhA"/>
@@ -216,6 +223,8 @@
     <ownedOperation xmi:type="uml:Operation" xmi:id="_kZuucCdjEfCBu5iRVKqhhA" name="aufEingabeWarten"/>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_mvBK0CdjEfCBu5iRVKqhhA" name="eingabeAufGültigkeitPrüfen"/>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_sLD8wCdjEfCBu5iRVKqhhA" name="ViewAnpassen"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_2ORNUCjzEfCjGIbVbbp4Rw" name="bestellungVersenden"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_ILtDQCj0EfCjGIbVbbp4Rw" name="nachBestellungenSchauen"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Association" xmi:id="_upLlACdjEfCBu5iRVKqhhA" memberEnd="_upMMEidjEfCBu5iRVKqhhA _upPPYCdjEfCBu5iRVKqhhA">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_upMMECdjEfCBu5iRVKqhhA" source="org.eclipse.papyrus">

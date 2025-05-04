@@ -421,6 +421,10 @@
           <element xmi:type="uml:Operation" href="Easy_Brew_UML.uml#_sLD8wCdjEfCBu5iRVKqhhA"/>
           <layoutConstraint xmi:type="notation:Location" xmi:id="_sLVpkSdjEfCBu5iRVKqhhA"/>
         </children>
+        <children xmi:type="notation:Shape" xmi:id="_2O1OACjzEfCjGIbVbbp4Rw" type="Operation_ClassOperationLabel">
+          <element xmi:type="uml:Operation" href="Easy_Brew_UML.uml#_2ORNUCjzEfCjGIbVbbp4Rw"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_2O1OASjzEfCjGIbVbbp4Rw"/>
+        </children>
         <styles xmi:type="notation:TitleStyle" xmi:id="_Y0zSuydjEfCBu5iRVKqhhA"/>
         <styles xmi:type="notation:SortingStyle" xmi:id="_Y0zSvCdjEfCBu5iRVKqhhA"/>
         <styles xmi:type="notation:FilteringStyle" xmi:id="_Y0zSvSdjEfCBu5iRVKqhhA"/>
@@ -473,6 +477,11 @@
       <children xmi:type="notation:DecorationNode" xmi:id="_-cXXoidoEfCBu5iRVKqhhA" type="Comment_BodyLabel"/>
       <element xmi:type="uml:Comment" href="Easy_Brew_UML.uml#_-cWJgCdoEfCBu5iRVKqhhA"/>
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-cXXoSdoEfCBu5iRVKqhhA" x="40" y="740" width="121" height="81"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="__7NzwCjzEfCjGIbVbbp4Rw" type="Comment_Shape">
+      <children xmi:type="notation:DecorationNode" xmi:id="__7NzwijzEfCjGIbVbbp4Rw" type="Comment_BodyLabel"/>
+      <element xmi:type="uml:Comment" href="Easy_Brew_UML.uml#__7LXgCjzEfCjGIbVbbp4Rw"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="__7NzwSjzEfCjGIbVbbp4Rw" x="1440" y="-160" width="161" height="41"/>
     </children>
     <styles xmi:type="notation:StringValueStyle" xmi:id="_X7XRsSaREfC8nYzQfTIUFg" name="diagram_compatibility_version" stringValue="1.4.0"/>
     <styles xmi:type="notation:DiagramStyle" xmi:id="_X7XRsiaREfC8nYzQfTIUFg"/>
@@ -1173,6 +1182,10 @@
           <element xmi:type="uml:Operation" href="Easy_Brew_UML.uml#_sLD8wCdjEfCBu5iRVKqhhA"/>
           <layoutConstraint xmi:type="notation:Location" xmi:id="_DKv8wSjyEfCjGIbVbbp4Rw"/>
         </children>
+        <children xmi:type="notation:Shape" xmi:id="_MGA8sCj0EfCjGIbVbbp4Rw" type="Operation_ClassOperationLabel">
+          <element xmi:type="uml:Operation" href="Easy_Brew_UML.uml#_ILtDQCj0EfCjGIbVbbp4Rw"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_MGA8sSj0EfCjGIbVbbp4Rw"/>
+        </children>
         <styles xmi:type="notation:TitleStyle" xmi:id="_2HuLWyjxEfCjGIbVbbp4Rw"/>
         <styles xmi:type="notation:SortingStyle" xmi:id="_2HuLXCjxEfCjGIbVbbp4Rw"/>
         <styles xmi:type="notation:FilteringStyle" xmi:id="_2HuLXSjxEfCjGIbVbbp4Rw"/>
@@ -1270,6 +1283,11 @@
       </children>
       <element xmi:type="uml:Class" href="Easy_Brew_UML.uml#_a-cSACdeEfCBu5iRVKqhhA"/>
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6vJ0ASjyEfCjGIbVbbp4Rw" x="520" y="540"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_PxyD0Cj0EfCjGIbVbbp4Rw" type="Comment_Shape">
+      <children xmi:type="notation:DecorationNode" xmi:id="_PxyD0ij0EfCjGIbVbbp4Rw" type="Comment_BodyLabel"/>
+      <element xmi:type="uml:Comment" href="Easy_Brew_UML.uml#_PxxcwCj0EfCjGIbVbbp4Rw"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_PxyD0Sj0EfCjGIbVbbp4Rw" x="900" width="121" height="81"/>
     </children>
     <styles xmi:type="notation:StringValueStyle" xmi:id="_zUXIUSjwEfCjGIbVbbp4Rw" name="diagram_compatibility_version" stringValue="1.4.0"/>
     <styles xmi:type="notation:DiagramStyle" xmi:id="_zUXIUijwEfCjGIbVbbp4Rw"/>
