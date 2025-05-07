@@ -21,11 +21,6 @@
   <ownedComment xmi:type="uml:Comment" xmi:id="_PxxcwCj0EfCjGIbVbbp4Rw">
     <body>Controller auf Mitarbeiterseite betreibt Polling um nach neuen Bestellungen zu schauen</body>
   </ownedComment>
-  <ownedComment xmi:type="uml:Comment" xmi:id="_WTOy8CqGEfCCYa78y6YRcw">
-    <body>KundID rausnehmen?&#xD;
-Kunden werden nicht getracked&#xD;
-sonder nur die BestellNr</body>
-  </ownedComment>
   <ownedComment xmi:type="uml:Comment" xmi:id="_HN2dUCqIEfCCYa78y6YRcw">
     <body>View darf im Model&#xD;
 lesen aber kein&#xD;
@@ -41,9 +36,6 @@ Schreibzugriff</body>
   </packageImport>
   <packagedElement xmi:type="uml:Interaction" xmi:id="_X7vFICaREfC8nYzQfTIUFg" name="Interaction1"/>
   <packagedElement xmi:type="uml:Class" xmi:id="_C4o3ECaXEfCAcaEoQJwTVQ" name="Kunde">
-    <ownedAttribute xmi:type="uml:Property" xmi:id="_a6PAICadEfCozJTn8R_0rw" name="KunID">
-      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
-    </ownedAttribute>
     <ownedAttribute xmi:type="uml:Property" xmi:id="_WRGV8idaEfCBu5iRVKqhhA" name="mitarbeiter" type="_lU-BACaaEfCozJTn8R_0rw" association="_WRFu4CdaEfCBu5iRVKqhhA">
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WRGV8ydaEfCBu5iRVKqhhA"/>
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WRGV9CdaEfCBu5iRVKqhhA" value="1"/>
@@ -51,7 +43,6 @@ Schreibzugriff</body>
     <ownedAttribute xmi:type="uml:Property" xmi:id="_lVm28idaEfCBu5iRVKqhhA" name="bestellung" type="_ervVICaYEfCuoP51p4_1Ng" association="_lVmP4CdaEfCBu5iRVKqhhA">
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_lVm29CdaEfCBu5iRVKqhhA" value="*"/>
     </ownedAttribute>
-    <ownedAttribute xmi:type="uml:Property" xmi:id="_4NX04idfEfCBu5iRVKqhhA" name="warenkorb" type="_UGd4ICdfEfCBu5iRVKqhhA" association="_4NXN0CdfEfCBu5iRVKqhhA"/>
     <ownedAttribute xmi:type="uml:Property" xmi:id="_VwILUidkEfCBu5iRVKqhhA" name="controller" type="_Y0yEkCdjEfCBu5iRVKqhhA" association="_VwHkQCdkEfCBu5iRVKqhhA"/>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_xoA6cCavEfCSDaeRIOGZcg" name="bestellungAufgeben"/>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_ftjCQCdaEfCBu5iRVKqhhA" name="bezahlenAnfordern"/>
@@ -66,7 +57,6 @@ Schreibzugriff</body>
     <ownedAttribute xmi:type="uml:Property" xmi:id="_lNghkCavEfCSDaeRIOGZcg" name="TischNR">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
     </ownedAttribute>
-    <ownedAttribute xmi:type="uml:Property" xmi:id="_K1vuMCawEfCSDaeRIOGZcg" name="Kunde" type="_C4o3ECaXEfCAcaEoQJwTVQ"/>
     <ownedAttribute xmi:type="uml:Property" xmi:id="_QKVNQCawEfCSDaeRIOGZcg" name="Status">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
     </ownedAttribute>
@@ -179,7 +169,6 @@ Schreibzugriff</body>
   <packagedElement xmi:type="uml:Class" xmi:id="_UGd4ICdfEfCBu5iRVKqhhA" name="Warenkorb">
     <ownedAttribute xmi:type="uml:Property" xmi:id="_qvt88idfEfCBu5iRVKqhhA" name="bestellposition" type="_a-cSACdeEfCBu5iRVKqhhA" aggregation="shared" association="_qvtV4CdfEfCBu5iRVKqhhA">
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_qvt88ydfEfCBu5iRVKqhhA"/>
-      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_qvt89CdfEfCBu5iRVKqhhA" value="1"/>
     </ownedAttribute>
     <ownedAttribute xmi:type="uml:Property" xmi:id="_0y55ICdfEfCBu5iRVKqhhA" name="Bestellpositionen" type="_a-cSACdeEfCBu5iRVKqhhA">
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_0y55ISdfEfCBu5iRVKqhhA" value="*"/>
@@ -193,11 +182,12 @@ Schreibzugriff</body>
     </eAnnotations>
     <ownedEnd xmi:type="uml:Property" xmi:id="_qvt89SdfEfCBu5iRVKqhhA" name="warenkorb" type="_UGd4ICdfEfCBu5iRVKqhhA" association="_qvtV4CdfEfCBu5iRVKqhhA"/>
   </packagedElement>
-  <packagedElement xmi:type="uml:Association" xmi:id="_4NXN0CdfEfCBu5iRVKqhhA" memberEnd="_4NX04idfEfCBu5iRVKqhhA _4NYb8SdfEfCBu5iRVKqhhA">
+  <packagedElement xmi:type="uml:Association" xmi:id="_4NXN0CdfEfCBu5iRVKqhhA" memberEnd="_4NX04idfEfCBu5iRVKqhhA _4NYb8SdfEfCBu5iRVKqhhA" navigableOwnedEnd="_4NX04idfEfCBu5iRVKqhhA">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_4NX04CdfEfCBu5iRVKqhhA" source="org.eclipse.papyrus">
       <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_4NX04SdfEfCBu5iRVKqhhA" key="nature" value="UML_Nature"/>
     </eAnnotations>
     <ownedEnd xmi:type="uml:Property" xmi:id="_4NYb8SdfEfCBu5iRVKqhhA" name="kunde" type="_C4o3ECaXEfCAcaEoQJwTVQ" association="_4NXN0CdfEfCBu5iRVKqhhA"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_4NX04idfEfCBu5iRVKqhhA" name="warenkorb" type="_UGd4ICdfEfCBu5iRVKqhhA" association="_4NXN0CdfEfCBu5iRVKqhhA"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_EQnkUCdgEfCBu5iRVKqhhA" name="Speisekarte">
     <ownedAttribute xmi:type="uml:Property" xmi:id="_OQcDcidgEfCBu5iRVKqhhA" name="artikel" type="_jn2icCabEfCozJTn8R_0rw" aggregation="shared" association="_OQbcYCdgEfCBu5iRVKqhhA">
@@ -382,5 +372,107 @@ Schreibzugriff</body>
       <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_CrjC0SjzEfCjGIbVbbp4Rw" key="nature" value="UML_Nature"/>
     </eAnnotations>
     <ownedEnd xmi:type="uml:Property" xmi:id="_Crjp4CjzEfCjGIbVbbp4Rw" name="bestellung" type="_ervVICaYEfCuoP51p4_1Ng" association="_CribwCjzEfCjGIbVbbp4Rw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Actor" xmi:id="_QMq7wCszEfCK9qLbodGK3w" name="Kunde">
+    <generalization xmi:type="uml:Generalization" xmi:id="_7qEIcCs0EfCK9qLbodGK3w" general="_5UvsUCszEfCK9qLbodGK3w"/>
+    <generalization xmi:type="uml:Generalization" xmi:id="_906PYCs0EfCK9qLbodGK3w" general="_9Q1ucCszEfCK9qLbodGK3w"/>
+    <generalization xmi:type="uml:Generalization" xmi:id="_CTEcwCs1EfCK9qLbodGK3w" general="_B9ylwCs0EfCK9qLbodGK3w"/>
+    <generalization xmi:type="uml:Generalization" xmi:id="_QT5TMCs1EfCK9qLbodGK3w" general="_JeBAgCs1EfCK9qLbodGK3w"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Actor" xmi:id="_RskBMCszEfCK9qLbodGK3w" name="Personal">
+    <generalization xmi:type="uml:Generalization" xmi:id="_W0U9gCs5EfCK9qLbodGK3w" general="_Tk5fACs3EfCK9qLbodGK3w"/>
+    <generalization xmi:type="uml:Generalization" xmi:id="_ZK5zUCs5EfCK9qLbodGK3w" general="_WCb4cCs3EfCK9qLbodGK3w"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Package" xmi:id="_G80EgCs0EfCK9qLbodGK3w" name="Bestellsystem &quot;EasyBrew&quot;">
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_3V6oICszEfCK9qLbodGK3w" name="Warenkorb anzeigen">
+      <generalization xmi:type="uml:Generalization" xmi:id="_5dgxUCs0EfCK9qLbodGK3w" general="_QMq7wCszEfCK9qLbodGK3w"/>
+      <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_KEEecSs2EfCK9qLbodGK3w" name="ExtensionPoint3"/>
+      <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_MZ004Cs2EfCK9qLbodGK3w" name="ExtensionPoint4"/>
+      <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_Omqf4Cs2EfCK9qLbodGK3w" name="ExtensionPoint5"/>
+      <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_SG5scCs2EfCK9qLbodGK3w" name="ExtensionPoint6"/>
+      <include xmi:type="uml:Include" xmi:id="_HSDCwCs2EfCK9qLbodGK3w" addition="_ZY3ToCs1EfCK9qLbodGK3w"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_5UvsUCszEfCK9qLbodGK3w" name="Artikel in Warenkorb legen">
+      <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_acjIwSs2EfCK9qLbodGK3w" name="ExtensionPoint1"/>
+      <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_b4rvkCs2EfCK9qLbodGK3w" name="ExtensionPoint2"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_psF8cCszEfCK9qLbodGK3w" name="Speisekarte anzeigen">
+      <generalization xmi:type="uml:Generalization" xmi:id="_4jpxICs0EfCK9qLbodGK3w" general="_QMq7wCszEfCK9qLbodGK3w"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_AEJjkCs0EfCK9qLbodGK3w" name="Bestellstatus einsehen">
+      <generalization xmi:type="uml:Generalization" xmi:id="_Wf0p8Cs1EfCK9qLbodGK3w" general="_QMq7wCszEfCK9qLbodGK3w"/>
+      <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_nzxzICs3EfCK9qLbodGK3w" name="ExtensionPoint2"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_9Q1ucCszEfCK9qLbodGK3w" name="Bestellung abschicken"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_B9ylwCs0EfCK9qLbodGK3w" name="Service anfordern"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_JeBAgCs1EfCK9qLbodGK3w" name="Rechnung bezahlen">
+      <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_1rElACs1EfCK9qLbodGK3w" name="ExtensionPoint1"/>
+      <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_3TvL8Ss1EfCK9qLbodGK3w" name="ExtensionPoint2"/>
+      <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_6e2dECs1EfCK9qLbodGK3w" name="ExtensionPoint3"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_ZY3ToCs1EfCK9qLbodGK3w" name="Gesamtpreis anzeigen"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_cMrfECs1EfCK9qLbodGK3w" name="Rabattcodes eingeben">
+      <extend xmi:type="uml:Extend" xmi:id="_KEEecCs2EfCK9qLbodGK3w" extendedCase="_3V6oICszEfCK9qLbodGK3w" extensionLocation="_KEEecSs2EfCK9qLbodGK3w"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_eJE6UCs1EfCK9qLbodGK3w" name="Artikel entfernen">
+      <extend xmi:type="uml:Extend" xmi:id="_MZs5ECs2EfCK9qLbodGK3w" extendedCase="_3V6oICszEfCK9qLbodGK3w" extensionLocation="_MZ004Cs2EfCK9qLbodGK3w"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_fSjD0Cs1EfCK9qLbodGK3w" name="Extras hinzufügen">
+      <extend xmi:type="uml:Extend" xmi:id="_Omp40Cs2EfCK9qLbodGK3w" extendedCase="_3V6oICszEfCK9qLbodGK3w" extensionLocation="_Omqf4Cs2EfCK9qLbodGK3w"/>
+      <extend xmi:type="uml:Extend" xmi:id="_acjIwCs2EfCK9qLbodGK3w" extendedCase="_5UvsUCszEfCK9qLbodGK3w" extensionLocation="_acjIwSs2EfCK9qLbodGK3w"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_g80NQCs1EfCK9qLbodGK3w" name="Anzahl anpassen">
+      <extend xmi:type="uml:Extend" xmi:id="_SG4eUCs2EfCK9qLbodGK3w" extendedCase="_3V6oICszEfCK9qLbodGK3w" extensionLocation="_SG5scCs2EfCK9qLbodGK3w"/>
+      <extend xmi:type="uml:Extend" xmi:id="_b4qhcCs2EfCK9qLbodGK3w" extendedCase="_5UvsUCszEfCK9qLbodGK3w" extensionLocation="_b4rvkCs2EfCK9qLbodGK3w"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_i0lnMCs1EfCK9qLbodGK3w" name="Barzahlung">
+      <extend xmi:type="uml:Extend" xmi:id="_1rDW4Cs1EfCK9qLbodGK3w" extendedCase="_JeBAgCs1EfCK9qLbodGK3w" extensionLocation="_1rElACs1EfCK9qLbodGK3w"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_kKwv8Cs1EfCK9qLbodGK3w" name="PayPal ">
+      <extend xmi:type="uml:Extend" xmi:id="_3TvL8Cs1EfCK9qLbodGK3w" extendedCase="_JeBAgCs1EfCK9qLbodGK3w" extensionLocation="_3TvL8Ss1EfCK9qLbodGK3w"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_uSPWQCs1EfCK9qLbodGK3w" name="Kreditkarte">
+      <extend xmi:type="uml:Extend" xmi:id="_6essECs1EfCK9qLbodGK3w" extendedCase="_JeBAgCs1EfCK9qLbodGK3w" extensionLocation="_6e2dECs1EfCK9qLbodGK3w"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_2O51YCs2EfCK9qLbodGK3w" name="Bestellstatus aktualisieren">
+      <extend xmi:type="uml:Extend" xmi:id="_d_cyUCs3EfCK9qLbodGK3w" extendedCase="_UnDfkCs3EfCK9qLbodGK3w" extensionLocation="_d_cyUSs3EfCK9qLbodGK3w"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_36DvoCs2EfCK9qLbodGK3w" name="Bestellung anpassen">
+      <extend xmi:type="uml:Extend" xmi:id="_e-TAMCs3EfCK9qLbodGK3w" extendedCase="_UnDfkCs3EfCK9qLbodGK3w" extensionLocation="_e-TAMSs3EfCK9qLbodGK3w"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_5ESHECs2EfCK9qLbodGK3w" name="Bestellung stornieren">
+      <extend xmi:type="uml:Extend" xmi:id="_nzxMECs3EfCK9qLbodGK3w" extendedCase="_AEJjkCs0EfCK9qLbodGK3w" extensionLocation="_nzxzICs3EfCK9qLbodGK3w"/>
+      <extend xmi:type="uml:Extend" xmi:id="_t-2OQCs3EfCK9qLbodGK3w" extendedCase="_UnDfkCs3EfCK9qLbodGK3w" extensionLocation="_t-21UCs3EfCK9qLbodGK3w"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_7ejKECs2EfCK9qLbodGK3w" name="Kategorien bearbeiten">
+      <extend xmi:type="uml:Extend" xmi:id="_wiMUwCs3EfCK9qLbodGK3w" extendedCase="_WCb4cCs3EfCK9qLbodGK3w" extensionLocation="_wiM70Cs3EfCK9qLbodGK3w"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_-DgaICs2EfCK9qLbodGK3w" name="Artikel bearbeiten">
+      <extend xmi:type="uml:Extend" xmi:id="_xWmNMCs3EfCK9qLbodGK3w" extendedCase="_WCb4cCs3EfCK9qLbodGK3w" extensionLocation="_xWnbUCs3EfCK9qLbodGK3w"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="__4dwoCs2EfCK9qLbodGK3w" name="Rechnung erzeugen"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_BjH7oCs3EfCK9qLbodGK3w" name="Rechnungsdaten speichern"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_M7BA8Cs3EfCK9qLbodGK3w" name="Beleg erstellen"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_Tk5fACs3EfCK9qLbodGK3w" name="Bestellung einsehen">
+      <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_XpenYCs6EfCK9qLbodGK3w" name="ExtensionPoint1"/>
+      <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_KnjzwCs7EfCK9qLbodGK3w" name="ExtensionPoint2"/>
+      <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_M2RHACs7EfCK9qLbodGK3w" name="ExtensionPoint3"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_UnDfkCs3EfCK9qLbodGK3w" name="Bestellungen verwalten">
+      <extend xmi:type="uml:Extend" xmi:id="_KniloCs7EfCK9qLbodGK3w" extendedCase="_Tk5fACs3EfCK9qLbodGK3w" extensionLocation="_KnjzwCs7EfCK9qLbodGK3w"/>
+      <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_d_cyUSs3EfCK9qLbodGK3w" name="ExtensionPoint1"/>
+      <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_e-TAMSs3EfCK9qLbodGK3w" name="ExtensionPoint2"/>
+      <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_t-21UCs3EfCK9qLbodGK3w" name="ExtensionPoint3"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_WCb4cCs3EfCK9qLbodGK3w" name="Speisekarte verwalten">
+      <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_wiM70Cs3EfCK9qLbodGK3w" name="ExtensionPoint1"/>
+      <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_xWnbUCs3EfCK9qLbodGK3w" name="ExtensionPoint2"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_XPWXgCs3EfCK9qLbodGK3w" name="Bestellung abrechnen">
+      <extend xmi:type="uml:Extend" xmi:id="_M2Qf8Cs7EfCK9qLbodGK3w" extendedCase="_Tk5fACs3EfCK9qLbodGK3w" extensionLocation="_M2RHACs7EfCK9qLbodGK3w"/>
+      <include xmi:type="uml:Include" xmi:id="_5-nWcCs4EfCK9qLbodGK3w" addition="__4dwoCs2EfCK9qLbodGK3w"/>
+      <include xmi:type="uml:Include" xmi:id="_7Hx98Cs4EfCK9qLbodGK3w" addition="_BjH7oCs3EfCK9qLbodGK3w"/>
+      <include xmi:type="uml:Include" xmi:id="_8locACs4EfCK9qLbodGK3w" addition="_M7BA8Cs3EfCK9qLbodGK3w"/>
+    </packagedElement>
   </packagedElement>
 </uml:Model>
