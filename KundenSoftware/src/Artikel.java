@@ -10,7 +10,7 @@ import org.json.JSONObject;
  */
 public class Artikel{
 	private double preis;
-	private String artikelNR;
+	private int artikelNR;
 	private String name;
 	private String vorschaubild;
 	
@@ -27,7 +27,7 @@ public class Artikel{
      * @param name          Der Name des Artikels
      * @param vorschaubild  Der Pfad oder Name des Vorschaubilds
      */
-	public Artikel(double preis, String artikelNR,String name, String vorschaubild) {
+	public Artikel(double preis, int artikelNR,String name, String vorschaubild) {
 		this.preis = preis;
 		this.artikelNR = artikelNR;
 		this.name = name;
@@ -44,7 +44,7 @@ public class Artikel{
 	public static Artikel artikelladen(String pfad) throws IOException{
 		String inhalt = new String(Files.readAllBytes(Paths.get(pfad)));
 		JSONObject json = new JSONObject(inhalt);
-		Artikel artikel = new Artikel(json.getDouble("preis"), json.getString("artikelNR"), json.getString("name"), json.getString("vorschaubild"));
+		Artikel artikel = new Artikel(json.getDouble("preis"), json.getInt("artikelNR"), json.getString("name"), json.getString("vorschaubild"));
 		return artikel;
 	}
 	
