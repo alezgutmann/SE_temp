@@ -15,13 +15,11 @@ import org.json.JSONObject;
  * {@code Bestellposition}-Objekten, welche später in einer Bestellung übergeben
  * werden.
  */
-public class Bestellung {
-
-	
+public class Bestellung {	
 	private int tischNR;
 	private int BestellNR;
 	private String status;
-	private Bestellposition[] positionen = new Bestellposition[0]; // Leeres Array zum Start
+	public Bestellposition[] positionen = new Bestellposition[0]; // Leeres Array zum Start
 
 	public int getAvailableBestellNR() {
 		File ordner = new File("../Austauschordner");
@@ -114,6 +112,15 @@ public class Bestellung {
      * Speichert die Bestellung als JSON-Datei im Verzeichnis ../Austauschordner.
      */
     public void bestellungVersenden() {
+    	//erst hier die Rechnung generieren
+    	int belegNR_spaceholder = 1;
+    	Rechnung rech = new Rechnung(belegNR_spaceholder,this); //erst mal Platzhalter für BelegNR
+    	
+    	JSONObject rechnungjson = new JSONObject();
+    	rechnungjson.put("belegNR", rech.belegNR);
+    	rechnungjson.put("betrag", rech.betrag);
+    	
+    	
         JSONArray jsonArray = new JSONArray();
         for (Bestellposition pos : positionen) {
             JSONObject jsonObj = new JSONObject();
@@ -122,11 +129,14 @@ public class Bestellung {
             jsonObj.put("sonderwunsch", pos.sonderwunsch);
             jsonArray.put(jsonObj);
         }
+        
+        
 
         JSONObject bestellungObj = new JSONObject();
         bestellungObj.put("BestellNR", this.BestellNR);
         bestellungObj.put("TischNR", this.tischNR);
         bestellungObj.put("Status", this.status);
+        bestellungObj.put("Rechnung", rechnungjson);
         bestellungObj.put("bestellpositionen", jsonArray);
 
         try {

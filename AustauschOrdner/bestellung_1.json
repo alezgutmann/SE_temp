@@ -18,5 +18,9 @@
         }
     ],
     "BestellNR": 1,
+    "Rechnung": {
+        "belegNR": 1,
+        "betrag": 202.59
+    },
     "TischNR": 69
 }

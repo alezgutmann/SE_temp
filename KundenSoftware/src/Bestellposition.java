@@ -8,6 +8,7 @@ public class Bestellposition {
 	public int artikelNR;
 	public String sonderwunsch;
 	public int artikelAnzahl;
+	public double preis = 0;
 	
 	
 	/**
@@ -21,6 +22,14 @@ public class Bestellposition {
 		this.artikelNR = artikelNR;
 		this.artikelAnzahl = artikelAnzahl;
 		this.sonderwunsch = sonderwunsch;
+		
+		preisBerechnen();
+		
+	}
+	
+	public void preisBerechnen() {
+		Artikel tmp = Artikel.findArtikelByArtikelNR(this.artikelNR);
+		this.preis = (tmp.get_preis() * this.artikelAnzahl);
 	}
 	
 	
@@ -31,7 +40,8 @@ public class Bestellposition {
      */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+		Bestellposition bpos = new Bestellposition(1, 10, "Aber bitte mit Sahne! Lol Roflkopter");
+		System.out.println(bpos.preis);
 	}
 
 }
