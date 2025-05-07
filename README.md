@@ -21,8 +21,8 @@
 - Warenkorb Screen
 - Speisekarten Screen mit 3 Kategorien bspw. Cafe, Mittag, Alkoholisches (Max)
 - Bestellungen im JSON Format speichern, in Austauschordner legen (Henry) y
-- dann bestellungen aus "AustauschOrdner" wieder einlesen um im Bestellübersicht Screen anzeigen zu lassen
-- Mitarbeitersoftware Projekt muss angelegt werden
-- Mitarbeiter Screen machen
+- dann bestellungen aus "AustauschOrdner" wieder einlesen um im Bestellübersicht Screen anzeigen zu lassen (zum json einlesen siehe Artikel klasse)
+- Mitarbeitersoftware Projekt muss angelegt werden (Carlo)
+- Mitarbeiter Screen machen (Carlo)
 - Klasse Bestellposition (Henry) y
 - Bestellungen Klasse braucht noch Rechnungsklass und Generierung ebendieser(Henry) y
