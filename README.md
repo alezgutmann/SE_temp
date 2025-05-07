@@ -14,10 +14,11 @@
 
 
 # Programmieren TODO
-- Aufbau von Essensfiles im JSON Format Laden (Henry)
-- 3 Pseudo Essensfiles machen (Henry)
+- Aufbau von Essensfiles im JSON Format Laden (Henry) y
+- 3 Pseudo Essensfiles machen (Henry) y
 - Warenkorb Screen
 - Speisekarten Screen mit 3 Kategorien bspw. Cafe, Mittag, Alkoholisches (Max)
 - Bestellungen im JSON Format speichern, in Austauschordner legen, von dort wieder einlesen um im Bestellübersicht Screen anzeigen zu lassen
 - Mitarbeitersoftware Projekt muss angelegt werden
 - Mitarbeiter Screen machen
+- Klasse Bestellposition (Henry)
