@@ -1,0 +1,22 @@
+{
+    "Status": "Noch nicht Bearbeitet",
+    "bestellpositionen": [
+        {
+            "artikelAnzahl": 10,
+            "sonderwunsch": "Aber bitte mit Sahne! Lol Roflkopter",
+            "artikelNR": 1
+        },
+        {
+            "artikelAnzahl": 10,
+            "sonderwunsch": "Aber bitte mit Sahne! Lol Roflkopter",
+            "artikelNR": 1
+        },
+        {
+            "artikelAnzahl": 1,
+            "sonderwunsch": "Ohne Soße",
+            "artikelNR": 2
+        }
+    ],
+    "BestellNR": 2,
+    "TischNR": 69
+}
