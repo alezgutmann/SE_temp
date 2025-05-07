@@ -11,9 +11,6 @@
   <ownedComment xmi:type="uml:Comment" xmi:id="_JW0XMCdiEfCBu5iRVKqhhA">
     <body>Sonderwünsche werden über Textfeld abgefragt</body>
   </ownedComment>
-  <ownedComment xmi:type="uml:Comment" xmi:id="_agkGYCdiEfCBu5iRVKqhhA">
-    <body>Name beim Kunden weggelassen, weil er sowieso nur über die KunID referenziert wird</body>
-  </ownedComment>
   <ownedComment xmi:type="uml:Comment" xmi:id="_-cWJgCdoEfCBu5iRVKqhhA">
     <body>artikelLaden() durch lesen von .json realisiert, damit neue Artikel einfach durch (manuelles) Erstellen einer weiteren .json hinzugefügt werden können</body>
   </ownedComment>
@@ -23,6 +20,21 @@
   </ownedComment>
   <ownedComment xmi:type="uml:Comment" xmi:id="_PxxcwCj0EfCjGIbVbbp4Rw">
     <body>Controller auf Mitarbeiterseite betreibt Polling um nach neuen Bestellungen zu schauen</body>
+  </ownedComment>
+  <ownedComment xmi:type="uml:Comment" xmi:id="_WTOy8CqGEfCCYa78y6YRcw">
+    <body>KundID rausnehmen?&#xD;
+Kunden werden nicht getracked&#xD;
+sonder nur die BestellNr</body>
+  </ownedComment>
+  <ownedComment xmi:type="uml:Comment" xmi:id="_HN2dUCqIEfCCYa78y6YRcw">
+    <body>View darf im Model&#xD;
+lesen aber kein&#xD;
+Schreibzugriff</body>
+  </ownedComment>
+  <ownedComment xmi:type="uml:Comment" xmi:id="_L8vOUCqIEfCCYa78y6YRcw">
+    <body>View darf im Model&#xD;
+lesen aber kein&#xD;
+Schreibzugriff</body>
   </ownedComment>
   <packageImport xmi:type="uml:PackageImport" xmi:id="_X93zICaREfC8nYzQfTIUFg">
     <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
@@ -37,7 +49,6 @@
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WRGV9CdaEfCBu5iRVKqhhA" value="1"/>
     </ownedAttribute>
     <ownedAttribute xmi:type="uml:Property" xmi:id="_lVm28idaEfCBu5iRVKqhhA" name="bestellung" type="_ervVICaYEfCuoP51p4_1Ng" association="_lVmP4CdaEfCBu5iRVKqhhA">
-      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_lVm28ydaEfCBu5iRVKqhhA"/>
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_lVm29CdaEfCBu5iRVKqhhA" value="*"/>
     </ownedAttribute>
     <ownedAttribute xmi:type="uml:Property" xmi:id="_4NX04idfEfCBu5iRVKqhhA" name="warenkorb" type="_UGd4ICdfEfCBu5iRVKqhhA" association="_4NXN0CdfEfCBu5iRVKqhhA"/>
@@ -64,8 +75,10 @@
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_QYIlMSdfEfCBu5iRVKqhhA" value="*"/>
     </ownedAttribute>
     <ownedAttribute xmi:type="uml:Property" xmi:id="_YUjlACdmEfCBu5iRVKqhhA" name="Rechnung" type="_jgENgCadEfCozJTn8R_0rw"/>
-    <ownedAttribute xmi:type="uml:Property" xmi:id="_lUZioijyEfCjGIbVbbp4Rw" name="rechnung" type="_jgENgCadEfCozJTn8R_0rw" aggregation="shared" association="_lUY7kCjyEfCjGIbVbbp4Rw"/>
-    <ownedAttribute xmi:type="uml:Property" xmi:id="_CrjC0ijzEfCjGIbVbbp4Rw" name="bestellposition" type="_a-cSACdeEfCBu5iRVKqhhA" aggregation="composite" association="_CribwCjzEfCjGIbVbbp4Rw"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_lUZioijyEfCjGIbVbbp4Rw" name="rechnung" type="_jgENgCadEfCozJTn8R_0rw" aggregation="composite" association="_lUY7kCjyEfCjGIbVbbp4Rw"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_CrjC0ijzEfCjGIbVbbp4Rw" name="bestellposition" type="_a-cSACdeEfCBu5iRVKqhhA" aggregation="composite" association="_CribwCjzEfCjGIbVbbp4Rw">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_zne6sCqHEfCCYa78y6YRcw" value="*"/>
+    </ownedAttribute>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_lU-BACaaEfCozJTn8R_0rw" name="Mitarbeiter" visibility="public">
     <ownedAttribute xmi:type="uml:Property" xmi:id="_-E5ecCaaEfCozJTn8R_0rw" name="MitID" visibility="public">
@@ -187,13 +200,13 @@
     <ownedEnd xmi:type="uml:Property" xmi:id="_4NYb8SdfEfCBu5iRVKqhhA" name="kunde" type="_C4o3ECaXEfCAcaEoQJwTVQ" association="_4NXN0CdfEfCBu5iRVKqhhA"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_EQnkUCdgEfCBu5iRVKqhhA" name="Speisekarte">
-    <ownedAttribute xmi:type="uml:Property" xmi:id="_OQcDcidgEfCBu5iRVKqhhA" name="artikel" type="_jn2icCabEfCozJTn8R_0rw" association="_OQbcYCdgEfCBu5iRVKqhhA">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_OQcDcidgEfCBu5iRVKqhhA" name="artikel" type="_jn2icCabEfCozJTn8R_0rw" aggregation="shared" association="_OQbcYCdgEfCBu5iRVKqhhA">
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_OQcDdCdgEfCBu5iRVKqhhA" value="*"/>
     </ownedAttribute>
     <ownedAttribute xmi:type="uml:Property" xmi:id="_c3JxACdnEfCBu5iRVKqhhA" name="Seiten" type="_RiBEwCdnEfCBu5iRVKqhhA">
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_r3rJ4CdnEfCBu5iRVKqhhA" value="*"/>
     </ownedAttribute>
-    <ownedAttribute xmi:type="uml:Property" xmi:id="_t5hF0idnEfCBu5iRVKqhhA" name="seite" type="_RiBEwCdnEfCBu5iRVKqhhA" aggregation="shared" association="_t5gewCdnEfCBu5iRVKqhhA">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_t5hF0idnEfCBu5iRVKqhhA" name="seite" type="_RiBEwCdnEfCBu5iRVKqhhA" aggregation="composite" association="_t5gewCdnEfCBu5iRVKqhhA">
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_t5hs4SdnEfCBu5iRVKqhhA" value="*"/>
     </ownedAttribute>
   </packagedElement>
@@ -222,7 +235,7 @@
   <packagedElement xmi:type="uml:Class" xmi:id="_Y0yEkCdjEfCBu5iRVKqhhA" name="Controller">
     <ownedOperation xmi:type="uml:Operation" xmi:id="_kZuucCdjEfCBu5iRVKqhhA" name="aufEingabeWarten"/>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_mvBK0CdjEfCBu5iRVKqhhA" name="eingabeAufGültigkeitPrüfen"/>
-    <ownedOperation xmi:type="uml:Operation" xmi:id="_sLD8wCdjEfCBu5iRVKqhhA" name="ViewAnpassen"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_sLD8wCdjEfCBu5iRVKqhhA" name="viewAnpassen"/>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_2ORNUCjzEfCjGIbVbbp4Rw" name="bestellungVersenden"/>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_ILtDQCj0EfCjGIbVbbp4Rw" name="nachBestellungenSchauen"/>
   </packagedElement>
