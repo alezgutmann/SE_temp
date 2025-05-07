@@ -1,6 +1,7 @@
 # SE_temp
 # WICHTIG
 - ihr müsst die json.jar im ordner lib (neben src) in den build path übernehmen
+- auf den AustauschOrdner greift man über ../AustauschOrdner zu und NICHT über ../../AustauschOrdner
 
 # TODO
 - VERGESST UNTER KEINEN UMSTÄNDEN DIE ENTWICKLERDOKUMENTATION BEIM PROGRAMMIEREN ZU PFLEGEN; DAS WIRD SICHERLICH HOCH BEWERTET
