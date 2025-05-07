@@ -4,7 +4,7 @@
 
 # TODO
 - VERGESST UNTER KEINEN UMSTÄNDEN DIE ENTWICKLERDOKUMENTATION BEIM PROGRAMMIEREN ZU PFLEGEN; DAS WIRD SICHERLICH HOCH BEWERTET
-- am Ende nochmal alle Artefakte ins Repo einfügen (wird vmtl jetzt noch nicht  gehen, da die wahrscheinlich zu groß für github sind)
+- am Ende nochmal alle Artefakte ins Repo einfügen (wird vmtl jetzt noch nicht  gehen, da die wahrscheinlich zu groß für github sind, müssen dann also lokal ins repo kurz vor der abgabe übernommen werden)
 - Dokumentation seine Arbeitszeiten eintragen nicht vergessen
 - alle bisherigen dokumente ins repo übernehmen (Jule)
 
