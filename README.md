@@ -19,5 +19,5 @@
 - Warenkorb Screen
 - Speisekarten Screen mit 3 Kategorien bspw. Cafe, Mittag, Alkoholisches (Max)
 - Bestellungen im JSON Format speichern, in Austauschordner legen, von dort wieder einlesen um im Bestellübersicht Screen anzeigen zu lassen
-- Mitarbeitersoftware Projekt muss angelegt werden
+- Mitarbeitersoftware Projekt muss angelegt werden (Carlo)
 - Mitarbeiter Screen machen
