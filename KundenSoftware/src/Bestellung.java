@@ -1,7 +1,11 @@
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -16,9 +20,46 @@ public class Bestellung {
 	
 	private int tischNR;
 	private int BestellNR;
+	private String status;
 	private Bestellposition[] positionen = new Bestellposition[0]; // Leeres Array zum Start
 
-	public Bestellung() {
+	public int getAvailableBestellNR() {
+		File ordner = new File("../Austauschordner");
+	    Set<Integer> vergebeneNummern = new HashSet<>();
+
+	    if (!ordner.exists() || !ordner.isDirectory()) {
+	        System.out.println("Verzeichnis nicht gefunden: " + ordner.getAbsolutePath());
+	        return 1; // Wenn der Ordner nicht existiert, starten wir mit 1
+	    }
+
+	    File[] dateien = ordner.listFiles((dir, name) -> name.matches("bestellung_\\d+\\.json"));
+	    if (dateien != null) {
+	        for (File datei : dateien) {
+	            String name = datei.getName();
+	            String nummerString = name.replaceAll("[^\\d]", "");
+	            try {
+	                int nummer = Integer.parseInt(nummerString);
+	                vergebeneNummern.add(nummer);
+	            } catch (NumberFormatException e) {
+	                // Ignorieren
+	            }
+	        }
+	    }
+
+	    // Die kleinste freie Nummer finden
+	    int freieNummer = 1;
+	    System.out.println(vergebeneNummern);
+	    while (vergebeneNummern.contains(freieNummer)) {
+	        freieNummer++;
+	    }
+
+	    return freieNummer;
+	}
+	
+	public Bestellung(int tischNR) {
+		this.status = "Noch nicht Bearbeitet";
+		this.tischNR = tischNR;
+		this.BestellNR = getAvailableBestellNR();
 	}
 
 	/**
@@ -83,6 +124,9 @@ public class Bestellung {
         }
 
         JSONObject bestellungObj = new JSONObject();
+        bestellungObj.put("BestellNR", this.BestellNR);
+        bestellungObj.put("TischNR", this.tischNR);
+        bestellungObj.put("Status", this.status);
         bestellungObj.put("bestellpositionen", jsonArray);
 
         try {
@@ -91,7 +135,7 @@ public class Bestellung {
             Files.createDirectories(Paths.get(ordnerPfad));
 
             // Datei schreiben
-            String dateipfad = ordnerPfad + "/bestellung.json";
+            String dateipfad = ordnerPfad + "/bestellung_"+ this.BestellNR + ".json";
             try (FileWriter file = new FileWriter(dateipfad)) {
                 file.write(bestellungObj.toString(4)); // 4 = Einrückung für Lesbarkeit
                 file.flush();
@@ -108,7 +152,7 @@ public class Bestellung {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Bestellung b = new Bestellung();
+		Bestellung b = new Bestellung(69);
 		Bestellposition bpos = new Bestellposition(1, 10, "Aber bitte mit Sahne! Lol Roflkopter");
 		b.positionHinzufügen(bpos);
 		b.positionHinzufügen(bpos);
@@ -119,6 +163,8 @@ public class Bestellung {
 		b.positionLöschen(0);
 		System.out.println("Nach Löschen:");
 		System.out.println(b);
+		
+		System.out.println(b.BestellNR);
 		
 		b.bestellungVersenden();
 	}
