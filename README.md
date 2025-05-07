@@ -1,4 +1,6 @@
 # SE_temp
+# WICHTIG
+- ihr müsst die json.jar im ordner lib (neben src) in den build path übernehmen
 
 # TODO
 - VERGESST UNTER KEINEN UMSTÄNDEN DIE ENTWICKLERDOKUMENTATION BEIM PROGRAMMIEREN ZU PFLEGEN; DAS WIRD SICHERLICH HOCH BEWERTET
@@ -18,7 +20,9 @@
 - 3 Pseudo Essensfiles machen (Henry) y
 - Warenkorb Screen
 - Speisekarten Screen mit 3 Kategorien bspw. Cafe, Mittag, Alkoholisches (Max)
-- Bestellungen im JSON Format speichern, in Austauschordner legen, von dort wieder einlesen um im Bestellübersicht Screen anzeigen zu lassen
+- Bestellungen im JSON Format speichern, in Austauschordner legen (Henry) y
+- von dort wieder einlesen um im Bestellübersicht Screen anzeigen zu lassen
 - Mitarbeitersoftware Projekt muss angelegt werden
 - Mitarbeiter Screen machen
-- Klasse Bestellposition (Henry)
+- Klasse Bestellposition (Henry) y
+- Bestellungen Klasse braucht noch Rechnungsklass und Generierung ebendieser
