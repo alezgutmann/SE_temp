@@ -20,6 +20,10 @@ public class Main {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.add(view); // MitarbeiterView wird hier hinzugefügt
         frame.setSize(800, 600);
+
+		view.displayBestellung();
+        view.rechnungZeigen();
+		
         frame.setVisible(true);
 	}
 
