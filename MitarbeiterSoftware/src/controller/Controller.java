@@ -89,4 +89,19 @@ public class Controller {
 
         return bestellung;
     }
+
+    public void updateBestellStatus(int bestellNr, String neuerStatus) {
+        Bestellung bestellung = model.getBestellungen().stream()
+            .filter(b -> b.getBestellNr() == bestellNr)
+            .findFirst()
+            .orElseThrow(() -> new IllegalArgumentException("Bestellung nicht gefunden: " + bestellNr));
+        bestellung.setStatus(neuerStatus);
+        if (view != null) {
+            view.updateView(model.getBestellungen());
+        }
+    }
+    
+    public List<Bestellung> getBestellungen() {
+        return model.getBestellungen();
+    }
 }
