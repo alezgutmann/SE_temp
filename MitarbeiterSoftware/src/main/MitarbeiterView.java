@@ -3,9 +3,13 @@ package main;
 import java.awt.BorderLayout;
 import java.util.List;
 
+import javax.swing.BorderFactory;
+import javax.swing.BoxLayout;
 import javax.swing.DefaultListModel;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
@@ -36,28 +40,38 @@ public class MitarbeiterView extends JPanel{
         // Bestellungen aus dem Model abrufen
         List<String> bestellungen = mitModel.getBestellungen(); // Annahme: Methode existiert im Model
 
-        // GUI-Komponente erstellen
-        DefaultListModel<String> listModel = new DefaultListModel<>();
-        for (String bestellung : bestellungen) {
-            listModel.addElement(bestellung);
-        }
-        JList<String> bestellungsListe = new JList<>(listModel);
+        // Haupt-Panel mit BoxLayout für vertikale Anordnung
+        JPanel bestellungenPanel = new JPanel();
+        bestellungenPanel.setLayout(new BoxLayout(bestellungenPanel, BoxLayout.Y_AXIS));
 
-        // Listener hinzufügen, um auf Auswahländerungen zu reagieren
-        bestellungsListe.addListSelectionListener(new ListSelectionListener() {
-            @Override
-            public void valueChanged(ListSelectionEvent e) {
-                if (!e.getValueIsAdjusting()) {
-                    String selectedBestellung = bestellungsListe.getSelectedValue();
-                    if (selectedBestellung != null) {
-                        updateDetails(selectedBestellung);
-                    }
-                }
-            }
-        });
+        // Für jede Bestellung ein eigenes Panel erstellen
+        for (String bestellung : bestellungen) {
+            JPanel bestellungBox = new JPanel();
+            bestellungBox.setBorder(BorderFactory.createTitledBorder(bestellung)); // Titel mit Bestellungsname
+            bestellungBox.setLayout(new BorderLayout());
+
+            // Details der Bestellung abrufen
+            String details = mitModel.getDetailsZuBestellung(bestellung);
+
+            // TextArea für die Details
+            JTextArea detailsTextArea = new JTextArea(details);
+            detailsTextArea.setEditable(false);
+            bestellungBox.add(new JScrollPane(detailsTextArea), BorderLayout.CENTER);
+
+            // Button für weitere Aktionen (z. B. Rechnung anzeigen)
+            JButton rechnungButton = new JButton("Rechnung anzeigen");
+            rechnungButton.addActionListener(e -> {
+                String rechnung = mitModel.getRechnungZuBestellung(bestellung);
+                JOptionPane.showMessageDialog(this, rechnung, "Rechnung", JOptionPane.INFORMATION_MESSAGE);
+            });
+            bestellungBox.add(rechnungButton, BorderLayout.SOUTH);
+
+            // Bestellung-Box zum Haupt-Panel hinzufügen
+            bestellungenPanel.add(bestellungBox);
+        }
 
         // ScrollPane hinzufügen
-        JScrollPane scrollPane = new JScrollPane(bestellungsListe);
+        JScrollPane scrollPane = new JScrollPane(bestellungenPanel);
         this.add(scrollPane, BorderLayout.CENTER);
 
         // Panel aktualisieren
