@@ -7,7 +7,7 @@ import model.Bestellposition;
 import javax.swing.*;
 import javax.swing.border.*;
 import java.awt.*;
-import java.io.File;
+// import java.io.File; // Nicht mehr direkt für JFileChooser benötigt, wenn alle geladen werden
 import java.util.List;
 
 public class MitarbeiterView extends JFrame {
@@ -89,13 +89,7 @@ public class MitarbeiterView extends JFrame {
         // -- Button Laden --
         JButton loadButton = new JButton("Bestellungen Laden");
         loadButton.addActionListener(e -> {
-            JFileChooser fc = new JFileChooser("src/data");
-            fc.setMultiSelectionEnabled(true);
-            if (fc.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
-                for (File f : fc.getSelectedFiles()) {
-                    controller.loadBestellungen(f.getAbsolutePath());
-                }
-            }
+            controller.loadAllAvailableBestellungen(); 
         });
         JPanel south = new JPanel(new FlowLayout(FlowLayout.CENTER));
         south.setBorder(new EmptyBorder(5,5,5,5));
@@ -144,54 +138,86 @@ public class MitarbeiterView extends JFrame {
     public void updateView(List<Bestellung> bestellungen) {
         bestellungenPanel.removeAll();
 
+        Font bestellNrFont = new Font("Arial", Font.BOLD, 16); // Größere Schrift für BestellNr
+        Font defaultFont = new JLabel().getFont(); // Standard Schrift für andere Infos
+        int editIconSize = 20; // Größe für das Bearbeiten-Icon, ggf. anpassen
+
         for (Bestellung b : bestellungen) {
-            // Card-Panel
-            JPanel card = new JPanel(new BorderLayout(5,5));
+            // Card-Panel Hauptcontainer
+            JPanel card = new JPanel(new BorderLayout(5, 5));
             card.setBorder(new CompoundBorder(
                 new LineBorder(Color.GRAY, 1),
-                new EmptyBorder(8,8,8,8)
+                new EmptyBorder(8, 8, 8, 8)
             ));
-            card.setBackground(Color.WHITE); // Karten bleiben weiß für Kontrast
+            card.setBackground(Color.WHITE);
 
-            // Obere Info
-            JPanel info = new JPanel(new GridLayout(3,1,2,2));
-            info.setOpaque(false);
-            info.add(new JLabel("BestellNr: " + b.getBestellNr()));
-            info.add(new JLabel("TischNr: "   + b.getTischNr()));
-            info.add(new JLabel("Status: "    + b.getStatus()));
-            card.add(info, BorderLayout.NORTH);
+            // --- Obere Sektion: BestellNr (links) und Bearbeiten-Button (rechts) ---
+            JPanel topSection = new JPanel(new BorderLayout());
+            topSection.setOpaque(false);
 
-            // Positionen
-            JPanel posPanel = new JPanel();
-            posPanel.setLayout(new BoxLayout(posPanel, BoxLayout.Y_AXIS));
-            posPanel.setOpaque(false);
-            for (Bestellposition p : b.getBestellpositionen()) {
-                String text = "- Artikel " + p.getArtikelNr()
-                            + " x" + p.getArtikelAnzahl()
-                            + (p.getSonderwunsch().isEmpty() ? "" : " ("+p.getSonderwunsch()+")");
-                posPanel.add(new JLabel(text));
-            }
-            card.add(posPanel, BorderLayout.CENTER);
+            JLabel bestellNrLabel = new JLabel("BestellNr: " + b.getBestellNr());
+            bestellNrLabel.setFont(bestellNrFont);
+            topSection.add(bestellNrLabel, BorderLayout.WEST);
 
-            // Bearbeiten-Button rechts unten
-            JButton edit = new JButton("Bearbeiten");
-            edit.addActionListener(e -> {
-                String[] opts = {"offen","inBearbeitung","abgeschlossen"};
+            // Bearbeiten-Button als Icon-Button erstellen
+            JButton editButton = createIconButton("/images/edit.png", "Status bearbeiten", editIconSize);
+            editButton.addActionListener(e -> {
+                String[] opts = {"offen", "inBearbeitung", "abgeschlossen"};
                 String neu = (String) JOptionPane.showInputDialog(
                     this, "Status wählen:", "Status ändern",
                     JOptionPane.PLAIN_MESSAGE, null, opts, b.getStatus()
                 );
                 if (neu != null && !neu.isEmpty()) {
                     controller.updateBestellStatus(b.getBestellNr(), neu);
-                    SwingUtilities.invokeLater(() ->
-                        updateView(controller.getBestellungen())
-                    );
                 }
             });
-            JPanel btnPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT,0,0));
-            btnPanel.setOpaque(false);
-            btnPanel.add(edit);
-            card.add(btnPanel, BorderLayout.SOUTH);
+            JPanel editButtonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT, 0, 0));
+            editButtonPanel.setOpaque(false);
+            editButtonPanel.add(editButton);
+            topSection.add(editButtonPanel, BorderLayout.EAST);
+
+            card.add(topSection, BorderLayout.NORTH);
+
+            // --- Mittlere Sektion: TischNr und Bestellpositionen (linksbündig) ---
+            JPanel centerContent = new JPanel();
+            centerContent.setLayout(new BoxLayout(centerContent, BoxLayout.Y_AXIS));
+            centerContent.setOpaque(false);
+            centerContent.setBorder(new EmptyBorder(5, 0, 5, 0)); // Etwas Abstand oben/unten
+
+            JLabel tischNrLabel = new JLabel("TischNr: " + b.getTischNr());
+            tischNrLabel.setFont(defaultFont);
+            centerContent.add(tischNrLabel);
+
+            // Positionen
+            JPanel posPanel = new JPanel();
+            posPanel.setLayout(new BoxLayout(posPanel, BoxLayout.Y_AXIS));
+            posPanel.setOpaque(false);
+            posPanel.setBorder(new EmptyBorder(5, 0, 0, 0)); // Abstand vor den Positionen
+            for (Bestellposition p : b.getBestellpositionen()) {
+                String text = "- Artikel " + p.getArtikelNr()
+                            + " x" + p.getArtikelAnzahl()
+                            + (p.getSonderwunsch().isEmpty() ? "" : " (" + p.getSonderwunsch() + ")");
+                JLabel posLabel = new JLabel(text);
+                posLabel.setFont(defaultFont);
+                posPanel.add(posLabel);
+            }
+            centerContent.add(posPanel);
+            
+            // Um sicherzustellen, dass der centerContent linksbündig bleibt, wenn er weniger Platz einnimmt
+            JPanel centerWrapper = new JPanel(new BorderLayout());
+            centerWrapper.setOpaque(false);
+            centerWrapper.add(centerContent, BorderLayout.WEST);
+            card.add(centerWrapper, BorderLayout.CENTER);
+
+
+            // --- Untere Sektion: Status (rechts) ---
+            JPanel bottomSection = new JPanel(new FlowLayout(FlowLayout.RIGHT, 0, 0));
+            bottomSection.setOpaque(false);
+            JLabel statusLabel = new JLabel("Status: " + b.getStatus());
+            statusLabel.setFont(defaultFont);
+            bottomSection.add(statusLabel);
+
+            card.add(bottomSection, BorderLayout.SOUTH);
 
             bestellungenPanel.add(card);
         }
