@@ -1,0 +1,66 @@
+[
+    {
+      "Status": "Noch nicht Bearbeitet",
+      "bestellpositionen": [
+        {
+          "artikelAnzahl": 2,
+          "sonderwunsch": "Mit extra Sahne",
+          "artikelNR": 1
+        },
+        {
+          "artikelAnzahl": 1,
+          "sonderwunsch": "Ohne Zucker",
+          "artikelNR": 2
+        }
+      ],
+      "BestellNR": 1,
+      "Rechnung": {
+        "belegNR": 1,
+        "betrag": 15.50
+      },
+      "TischNR": 1
+    },
+    {
+      "Status": "In Bearbeitung",
+      "bestellpositionen": [
+        {
+          "artikelAnzahl": 3,
+          "sonderwunsch": "Mit Milch",
+          "artikelNR": 3
+        },
+        {
+          "artikelAnzahl": 2,
+          "sonderwunsch": "Ohne Sahne",
+          "artikelNR": 4
+        }
+      ],
+      "BestellNR": 2,
+      "Rechnung": {
+        "belegNR": 2,
+        "betrag": 22.75
+      },
+      "TischNR": 2
+    },
+    {
+      "Status": "Fertig",
+      "bestellpositionen": [
+        {
+          "artikelAnzahl": 1,
+          "sonderwunsch": "Mit Zitrone",
+          "artikelNR": 5
+        },
+        {
+          "artikelAnzahl": 4,
+          "sonderwunsch": "Extra heiß",
+          "artikelNR": 6
+        }
+      ],
+      "BestellNR": 3,
+      "Rechnung": {
+        "belegNR": 3,
+        "betrag": 18.99
+      },
+      "TischNR": 3
+    }
+  ]
+  

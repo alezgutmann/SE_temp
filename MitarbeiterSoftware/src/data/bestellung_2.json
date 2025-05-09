@@ -1,0 +1,22 @@
+{
+    "Status": "In Bearbeitung",
+    "bestellpositionen": [
+      {
+        "artikelAnzahl": 2,
+        "sonderwunsch": "Extra scharf",
+        "artikelNR": 5
+      },
+      {
+        "artikelAnzahl": 1,
+        "sonderwunsch": "Ohne Zwiebeln",
+        "artikelNR": 3
+      }
+    ],
+    "BestellNR": 2,
+    "Rechnung": {
+      "belegNR": 2,
+      "betrag": 35.80
+    },
+    "TischNR": 12
+  }
+  

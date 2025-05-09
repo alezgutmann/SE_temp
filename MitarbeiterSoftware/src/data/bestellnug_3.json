@@ -1,0 +1,27 @@
+{
+    "Status": "Abgeschlossen",
+    "bestellpositionen": [
+      {
+        "artikelAnzahl": 3,
+        "sonderwunsch": "Kein Salz",
+        "artikelNR": 6
+      },
+      {
+        "artikelAnzahl": 2,
+        "sonderwunsch": "Mit extra Käse",
+        "artikelNR": 8
+      },
+      {
+        "artikelAnzahl": 1,
+        "sonderwunsch": "Glutenfrei",
+        "artikelNR": 4
+      }
+    ],
+    "BestellNR": 3,
+    "Rechnung": {
+      "belegNR": 3,
+      "betrag": 54.20
+    },
+    "TischNR": 7
+  }
+  

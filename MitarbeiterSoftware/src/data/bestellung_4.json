@@ -1,0 +1,22 @@
+{
+    "Status": "Noch nicht Bearbeitet",
+    "bestellpositionen": [
+      {
+        "artikelAnzahl": 4,
+        "sonderwunsch": "Ohne Dressing",
+        "artikelNR": 10
+      },
+      {
+        "artikelAnzahl": 5,
+        "sonderwunsch": "Doppelte Portion",
+        "artikelNR": 11
+      }
+    ],
+    "BestellNR": 4,
+    "Rechnung": {
+      "belegNR": 4,
+      "betrag": 88.00
+    },
+    "TischNR": 3
+  }
+  
