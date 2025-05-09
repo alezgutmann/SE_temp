@@ -16,8 +16,7 @@ public class Artikel {
 	private String name;
 	private String vorschaubild;
 
-	public Artikel() {
-	}
+
 
 	/**
 	 * Konstruktor zum Erstellen eines Artikels mit allen Eigenschaften. Wird
@@ -46,7 +45,10 @@ public class Artikel {
 	public static Artikel artikelladen(String pfad) throws IOException {
 		String inhalt = new String(Files.readAllBytes(Paths.get(pfad)));
 		JSONObject json = new JSONObject(inhalt);
-		Artikel artikel = new Artikel(json.getDouble("preis"), json.getInt("artikelNR"), json.getString("name"),
+		Artikel artikel = 
+				new Artikel(json.getDouble("preis"), 
+				json.getInt("artikelNR"), 
+				json.getString("name"),
 				json.getString("vorschaubild"));
 		return artikel;
 	}
@@ -79,6 +81,8 @@ public class Artikel {
 
 		return null;
 	}
+
+
 	/**
 	 * Gibt eine String-Repräsentation des Artikels zurück.
 	 *
@@ -103,16 +107,27 @@ public class Artikel {
 			e.printStackTrace();
 		}
 	}
-	//gibt Namen an Menu zurueck
-   	public String getName() {
-        	return name;
-   	 }
+	
 	public double get_preis() {
 		return this.preis;
 	}
-	//gibt Bild an Menu zurueck
-    	public String getVorschaubild() {
-        	return vorschaubild;
+
+
+    public Artikel() {}
+    
+   
+    
+    //gibt Namen an Menu zurueck
+    public String getName() {
+        return name;
+    }
+    //gibt Preis an Menu zurueck
+    public Double get_Preis() {
+    	return preis;
+    }
+    //gibt Bild an Menu zurueck
+    public String getVorschaubild() {
+        return vorschaubild;
     }
 
 }

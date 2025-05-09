@@ -106,7 +106,7 @@ public class ArtikelPanel extends JPanel {
         bottomPanel.setOpaque(false);
 
         // Preis-Label
-        JLabel preisLabel = new JLabel(String.format("%.2f €", artikel.getPreis()), SwingConstants.CENTER);
+        JLabel preisLabel = new JLabel(String.format("%.2f €", artikel.get_Preis()), SwingConstants.CENTER);
         preisLabel.setFont(new Font("Arial", Font.BOLD, 26));
         preisLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         bottomPanel.add(preisLabel);

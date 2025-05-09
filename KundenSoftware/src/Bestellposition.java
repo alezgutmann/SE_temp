@@ -29,7 +29,7 @@ public class Bestellposition {
 	
 	public void preisBerechnen() {
 		Artikel tmp = Artikel.findArtikelByArtikelNR(this.artikelNR);
-		this.preis = (tmp.getPreis() * this.artikelAnzahl);
+		this.preis = (tmp.get_preis() * this.artikelAnzahl);
 	}
 	
 	
