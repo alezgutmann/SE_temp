@@ -23,7 +23,6 @@ public class MitarbeiterView extends JFrame {
         setLayout(new BorderLayout());
 
         // Definieren der neuen Hintergrundfarbe
-        
         Color customBackgroundColor = Color.decode("#e4d2a3");
 
         // Hintergrund des Hauptfensters (Content Pane) setzen
