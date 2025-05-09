@@ -27,8 +27,6 @@ public class Controller {
         this.view = view;
     }
 
-    // Modifiziert: Aktualisiert die View nicht mehr direkt.
-    // Diese Methode lädt Daten aus einer einzelnen Datei in das Modell.
     public void loadBestellungen(String dateipfad) {
         try {
             String jsonString = readJsonFile(dateipfad);
@@ -48,14 +46,12 @@ public class Controller {
 
     // Neue Methode, um alle Bestellungen aus dem Standardverzeichnis zu laden
     public void loadAllAvailableBestellungen() {
-        // Optional: Bestehende Bestellungen löschen, falls die Liste ersetzt werden soll
+
         model.getBestellungen().clear(); 
 
         File dataDir = new File("src/data");
         if (!dataDir.exists() || !dataDir.isDirectory()) {
             System.err.println("Das Verzeichnis 'src/data' wurde nicht gefunden oder ist kein Verzeichnis.");
-            // Hier könnte eine Fehlermeldung in der View angezeigt werden
-            // z.B. if (view != null) view.showErrorDialog("Verzeichnis 'src/data' nicht gefunden.");
             return;
         }
 
@@ -70,7 +66,6 @@ public class Controller {
             }
         } else {
             System.err.println("Konnte den Inhalt des Verzeichnisses 'src/data' nicht lesen oder es ist leer.");
-            // Hier könnte eine Info in der View angezeigt werden
         }
 
         if (view != null) {

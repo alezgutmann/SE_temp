@@ -4,7 +4,7 @@ public class Artikel {
     private int artikelNr;
     private String name;
     private double preis;
-    private String vorschaubild; // Optional
+    private String vorschaubild; 
 
     public Artikel(int artikelNr, String name, double preis) {
         this.artikelNr = artikelNr;

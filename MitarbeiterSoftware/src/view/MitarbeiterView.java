@@ -60,7 +60,7 @@ public class MitarbeiterView extends JFrame {
         centerPanel.add(titleLabel);
         topBar.add(centerPanel, BorderLayout.CENTER);
 
-        // Rechts: drei weitere Buttons mit Bildern
+
         JPanel rightPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT, 5, 0));
         rightPanel.setOpaque(false); 
 
@@ -76,7 +76,7 @@ public class MitarbeiterView extends JFrame {
 
         add(topBar, BorderLayout.NORTH);
 
-        // -- Panel für Bestellungen mit 2 Spalten --
+        //Panel für Bestellungen
         bestellungenPanel = new JPanel(new GridLayout(0, 2, 15, 15));
         bestellungenPanel.setBorder(new EmptyBorder(10, 10, 10, 10));
         bestellungenPanel.setBackground(customBackgroundColor); // Neue Hintergrundfarbe
@@ -98,14 +98,7 @@ public class MitarbeiterView extends JFrame {
         add(south, BorderLayout.SOUTH);
     }
 
-    /**
-     * Hilfsmethode zum Erstellen eines Buttons mit einem skalierten Icon.
-     *
-     * @param imagePath Pfad zum Bild (relativ zum Ressourcenordner, z.B. "/images/icon.png")
-     * @param tooltip   Tooltip-Text für den Button
-     * @param iconSize  Die gewünschte Größe (Höhe und Breite) für das Icon
-     * @return JButton mit skaliertem Icon
-     */
+ 
     private JButton createIconButton(String imagePath, String tooltip, int iconSize) {
         ImageIcon originalIcon = null;
         try {
@@ -151,7 +144,7 @@ public class MitarbeiterView extends JFrame {
             ));
             card.setBackground(Color.WHITE);
 
-            // --- Obere Sektion: BestellNr (links) und Bearbeiten-Button (rechts) ---
+
             JPanel topSection = new JPanel(new BorderLayout());
             topSection.setOpaque(false);
 
@@ -159,7 +152,7 @@ public class MitarbeiterView extends JFrame {
             bestellNrLabel.setFont(bestellNrFont);
             topSection.add(bestellNrLabel, BorderLayout.WEST);
 
-            // Bearbeiten-Button als Icon-Button erstellen
+
             JButton editButton = createIconButton("/images/edit.png", "Status bearbeiten", editIconSize);
             editButton.addActionListener(e -> {
                 String[] opts = {"offen", "inBearbeitung", "abgeschlossen"};
