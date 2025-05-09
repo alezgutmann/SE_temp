@@ -9,6 +9,7 @@ import org.json.JSONObject;
 
 import java.io.FileReader;
 import java.io.BufferedReader;
+import java.io.File; // Import File
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +27,8 @@ public class Controller {
         this.view = view;
     }
 
+    // Modifiziert: Aktualisiert die View nicht mehr direkt.
+    // Diese Methode lädt Daten aus einer einzelnen Datei in das Modell.
     public void loadBestellungen(String dateipfad) {
         try {
             String jsonString = readJsonFile(dateipfad);
@@ -34,13 +37,44 @@ public class Controller {
             Bestellung bestellung = parseBestellung(obj);
             model.addBestellung(bestellung); // Bestellung zum Modell hinzufügen
 
-            if (view != null) {
-                view.updateView(model.getBestellungen()); // View aktualisieren
-            }
         } catch (IOException e) {
-            System.err.println("Fehler beim Lesen der Datei: " + e.getMessage());
+            System.err.println("Fehler beim Lesen der Datei: " + dateipfad + " - " + e.getMessage());
+        } catch (JSONException e) {
+            System.err.println("Fehler beim Parsen von JSON aus Datei: " + dateipfad + " - " + e.getMessage());
         } catch (Exception e) {
-            System.err.println("Fehler beim Verarbeiten der Bestellung: " + e.getMessage());
+            System.err.println("Fehler beim Verarbeiten der Bestellung aus Datei: " + dateipfad + " - " + e.getMessage());
+        }
+    }
+
+    // Neue Methode, um alle Bestellungen aus dem Standardverzeichnis zu laden
+    public void loadAllAvailableBestellungen() {
+        // Optional: Bestehende Bestellungen löschen, falls die Liste ersetzt werden soll
+        model.getBestellungen().clear(); 
+
+        File dataDir = new File("src/data");
+        if (!dataDir.exists() || !dataDir.isDirectory()) {
+            System.err.println("Das Verzeichnis 'src/data' wurde nicht gefunden oder ist kein Verzeichnis.");
+            // Hier könnte eine Fehlermeldung in der View angezeigt werden
+            // z.B. if (view != null) view.showErrorDialog("Verzeichnis 'src/data' nicht gefunden.");
+            return;
+        }
+
+        File[] files = dataDir.listFiles((dir, name) -> name.toLowerCase().endsWith(".json"));
+
+        if (files != null) {
+            for (File file : files) {
+                if (file.isFile()) {
+                    // Ruft die modifizierte Methode auf, die nur zum Modell hinzufügt
+                    loadBestellungen(file.getAbsolutePath());
+                }
+            }
+        } else {
+            System.err.println("Konnte den Inhalt des Verzeichnisses 'src/data' nicht lesen oder es ist leer.");
+            // Hier könnte eine Info in der View angezeigt werden
+        }
+
+        if (view != null) {
+            view.updateView(model.getBestellungen()); // Aktualisiert die View einmal, nachdem alle Dateien verarbeitet wurden
         }
     }
 
@@ -57,7 +91,7 @@ public class Controller {
 
     private Bestellung parseBestellung(JSONObject obj) throws JSONException {
         Bestellung bestellung = new Bestellung();
-        bestellung.setBestellNr(obj.getInt("BestellNR")); // Korrigiert: setBestellNr
+        bestellung.setBestellNr(obj.getInt("BestellNR")); 
         bestellung.setTischNr(obj.getInt("TischNR"));
         bestellung.setStatus(obj.getString("Status"));
 
@@ -80,7 +114,7 @@ public class Controller {
             );
 
             // Dummy Artikel
-            Artikel artikel = new Artikel(pos.getArtikelNr(), "Artikel #" + pos.getArtikelNr(), 9.99); // Korrigiert: Konstruktor verwendet
+            Artikel artikel = new Artikel(pos.getArtikelNr(), "Artikel #" + pos.getArtikelNr(), 9.99); 
             pos.setArtikel(artikel);
 
             positionen.add(pos);
