@@ -4,7 +4,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import org.json.JSONObject;
 
-<<<<<<< HEAD
+
 /**
  * Die Klasse {@code Artikel} repräsentiert einen Artikel mit Preis,
  * Artikelnummer, Name und Vorschaubild. Sie kann einen Artikel aus einer
@@ -103,9 +103,17 @@ public class Artikel {
 			e.printStackTrace();
 		}
 	}
-	
+	//gibt Namen an Menu zurueck
+   	public String getName() {
+        	return name;
+   	 }
 	public double get_preis() {
 		return this.preis;
 	}
+	//gibt Bild an Menu zurueck
+    	public String getVorschaubild() {
+        	return vorschaubild;
+    }
+
 }
 
