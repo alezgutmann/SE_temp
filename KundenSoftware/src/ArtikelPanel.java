@@ -6,8 +6,10 @@ import java.awt.geom.RoundRectangle2D;
 import java.util.List;
 
 public class ArtikelPanel extends JPanel {
-
+	
+	
     public ArtikelPanel(List<Artikel> artikelListe) {
+    	
         setLayout(new BorderLayout());
         setBackground(new Color(228, 210, 163));
 
@@ -182,10 +184,23 @@ public class ArtikelPanel extends JPanel {
         JButton cartButton = createRectangularButton("In den Warenkorb", new Color(213, 74, 12));
         cartButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         bottomPanel.add(cartButton);
+        
+        cartButton.addActionListener(e -> sendToWarenkorb(artikel.getArtikelNR(),counterLabel,anmerkungenField));
 
         panel.add(bottomPanel, BorderLayout.SOUTH);
 
         return panel;
+    }
+    
+    private void sendToWarenkorb(int artikelNR, JLabel anzahlLabel,JTextArea sonderwunsch) {
+    	try {
+            int anzahl = Integer.parseInt(anzahlLabel.getText().trim());
+            String sonderwunschText = sonderwunsch.getText().trim();
+            Bestellposition bestPosi = new Bestellposition(artikelNR,anzahl, sonderwunschText);
+            bestPosi.sendToWarenkorb();
+        } catch (NumberFormatException e) {
+            System.err.println("Ungültige Zahl im Anzahllabel: " + anzahlLabel.getText());
+        }
     }
 
     private JButton createSquareButton(String text, Color color) {

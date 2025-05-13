@@ -52,7 +52,13 @@ public class Artikel {
 				json.getString("vorschaubild"));
 		return artikel;
 	}
-
+	
+	/**
+     * Sucht im Verzeichnis "./Essen" nach einer JSON-Datei mit einer passenden Artikelnummer.
+     *
+     * @param ArtikelNR Die zu suchende Artikelnummer
+     * @return Ein Artikel-Objekt, wenn gefunden, sonst null
+     */
 	public static Artikel findArtikelByArtikelNR(int ArtikelNR) {
 		File ordner = new File("./Essen");
 
@@ -110,6 +116,10 @@ public class Artikel {
 	
 	public double get_preis() {
 		return this.preis;
+	}
+	
+	public int getArtikelNR() {
+		return this.artikelNR;
 	}
 
 

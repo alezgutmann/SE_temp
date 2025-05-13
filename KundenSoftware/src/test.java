@@ -32,7 +32,7 @@ public class test {
 
             // ArtikelPanel erstellen und hinzufügen
             ArtikelPanel panel = new ArtikelPanel(artikelListe);
-            panel.setPreferredSize(new Dimension(2200, 150)); // Falls du immer noch eine feste Größe verwendest
+            panel.setPreferredSize(new Dimension(2200, 800)); 
 
             JScrollPane scrollPane = new JScrollPane(panel);
             scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);

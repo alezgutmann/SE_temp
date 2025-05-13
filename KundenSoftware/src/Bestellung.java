@@ -21,6 +21,27 @@ public class Bestellung {
 	private String status;
 	public Bestellposition[] positionen = new Bestellposition[0]; // Leeres Array zum Start
 
+	
+	
+	
+	
+	/**
+     * Konstruktor zur Initialisierung einer neuen Bestellung für einen bestimmten Tisch.
+     * Die Bestellnummer wird automatisch vergeben.
+     *
+     * @param tischNR Die Tischnummer
+     */
+	public Bestellung(int tischNR) {
+		this.status = "Noch nicht Bearbeitet";
+		this.tischNR = tischNR;
+		this.BestellNR = getAvailableBestellNR();
+	}
+	
+	/**
+     * Ermittelt die kleinste freie Bestellnummer im Verzeichnis "../Austauschordner".
+     *
+     * @return Die erste freie fortlaufende Bestellnummer ab 1
+     */
 	public int getAvailableBestellNR() {
 		File ordner = new File("../Austauschordner");
 	    Set<Integer> vergebeneNummern = new HashSet<>();
@@ -52,12 +73,6 @@ public class Bestellung {
 	    }
 
 	    return freieNummer;
-	}
-	
-	public Bestellung(int tischNR) {
-		this.status = "Noch nicht Bearbeitet";
-		this.tischNR = tischNR;
-		this.BestellNR = getAvailableBestellNR();
 	}
 
 	/**
